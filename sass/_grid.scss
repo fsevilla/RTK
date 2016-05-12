@@ -1,0 +1,75 @@
+$gutter: 10px;
+$max-columns: 12;
+$total-width: 100; //percentage
+
+@function getWidth($columns, $total){
+    @return ($total-width / $total * $columns)*1%;
+}
+
+.grid{
+    width: $total-width*1%;
+    box-sizing: border-box;
+
+    & > div[class*='c-']{
+        float: left;
+        box-sizing: border-box;
+        padding-left: $gutter;
+
+        &:first-child{
+            padding-left: 0;
+        }
+    }
+
+    &.no-gutter{
+        & > div[class*='c-']{
+            padding-left: 0;
+        }
+    }
+
+    &:after{
+        content:"";
+        display: table;
+        clear: both;
+    }
+
+    .c-1{
+        width: getWidth(12, 12);
+    }
+
+    .c-1-3{
+        width: getWidth(1, 3);
+    }
+
+    .c-2-3{
+        width: getWidth(2, 3);
+    }
+
+    .c-3-3{
+        @extend .c-1;
+    }
+
+    .c-1-6{
+        width: getWidth(1, 6);
+    }
+
+    .c-2-6{
+        width: getWidth(2, 6);
+    }
+
+    .c-3-6{
+        width: getWidth(3, 6);
+    }
+
+    .c-4-6{
+        width: getWidth(4, 6);
+    }
+
+    .c-5-6{
+        width: getWidth(4, 6);
+    }
+
+    .c-6-6{
+        @extend .c-1;
+    }
+
+}
