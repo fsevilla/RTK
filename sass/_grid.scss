@@ -9,18 +9,21 @@ $total-width: 100; //percentage
 .grid{
     width: $total-width*1%;
     box-sizing: border-box;
-    margin-left: $gutter*-1;
+    // margin-left: $gutter*-1;
     // overflow: hidden;
+    height: auto;
 
     & > [class*='c-']{
         float: left;
         box-sizing: border-box;
         padding-left: $gutter;
+        padding-right: $gutter;
+        word-wrap: break-word;
         // margin-left: $gutter*-1;
 
-        &:first-child{
+        //&:first-child{
             // padding-left: 0;
-        }
+        //}
     }
 
     &.no-gutter{
@@ -82,4 +85,94 @@ $total-width: 100; //percentage
     .c-6-6{
         @extend .c-1;
     }
+
+    .c-1-12{
+        width: getWidth(1, 12);
+    }
+
+    .c-2-12{
+        width: getWidth(2, 12);
+    }
+
+    .c-3-12{
+        width: getWidth(3, 12);
+    }
+
+    .c-4-12{
+        width: getWidth(4, 12);
+    }
+
+    .c-5-12{
+        width: getWidth(5, 12);
+    }
+
+    .c-6-12{
+        width: getWidth(6, 12);
+    }
+
+    .c-7-12{
+        width: getWidth(7, 12);
+    }
+
+    .c-8-12{
+        width: getWidth(8, 12);
+    }
+
+    .c-9-12{
+        width: getWidth(9, 12);
+    }
+
+    .c-10-12{
+        width: getWidth(10, 12);
+    }
+
+    .c-11-12{
+        width: getWidth(11, 12);
+    }
+
+    .c-12-12{
+        width: getWidth(12, 12);
+    }
+
+    /* Same height solution */
+    &.layout-grid{
+        overflow: hidden;
+
+        [class*=c-]{
+            margin-bottom: -99999px;
+            padding-bottom: 99999px;
+        }
+    }
+}
+
+
+.container{
+    max-width: $screen-large;
+    margin: 0 auto;
+}
+
+.container-xl{
+    @extend .container;
+    max-width: $screen-xlarge;
+}
+
+.container-md{
+    @extend .container;
+    max-width: $screen-medium;
+}
+
+.container-ml{
+    @extend .container;
+    max-width: $screen-medium-large;
+}
+
+.container-sm{
+    @extend .container;
+    max-width: $screen-small;
+}
+
+.clearfix:after{
+    content: "";
+    display: table;
+    clear: both;
 }

@@ -1,11 +1,14 @@
 .grid {
   width: 100%;
   box-sizing: border-box;
-  margin-left: -10px; }
+  height: auto;
+  /* Same height solution */ }
   .grid > [class*='c-'] {
     float: left;
     box-sizing: border-box;
-    padding-left: 10px; }
+    padding-left: 10px;
+    padding-right: 10px;
+    word-wrap: break-word; }
   .grid.no-gutter > div[class*='c-'] {
     padding-left: 0; }
   .grid:after {
@@ -30,5 +33,55 @@
     width: 66.66667%; }
   .grid .c-5-6 {
     width: 66.66667%; }
+  .grid .c-1-12 {
+    width: 8.33333%; }
+  .grid .c-2-12 {
+    width: 16.66667%; }
+  .grid .c-3-12 {
+    width: 25%; }
+  .grid .c-4-12 {
+    width: 33.33333%; }
+  .grid .c-5-12 {
+    width: 41.66667%; }
+  .grid .c-6-12 {
+    width: 50%; }
+  .grid .c-7-12 {
+    width: 58.33333%; }
+  .grid .c-8-12 {
+    width: 66.66667%; }
+  .grid .c-9-12 {
+    width: 75%; }
+  .grid .c-10-12 {
+    width: 83.33333%; }
+  .grid .c-11-12 {
+    width: 91.66667%; }
+  .grid .c-12-12 {
+    width: 100%; }
+  .grid.layout-grid {
+    overflow: hidden; }
+    .grid.layout-grid [class*=c-] {
+      margin-bottom: -99999px;
+      padding-bottom: 99999px; }
+
+.container, .container-xl, .container-md, .container-ml, .container-sm {
+  max-width: 1024px;
+  margin: 0 auto; }
+
+.container-xl {
+  max-width: 1200px; }
+
+.container-md {
+  max-width: 768px; }
+
+.container-ml {
+  max-width: 992px; }
+
+.container-sm {
+  max-width: 480px; }
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
 
 /*# sourceMappingURL=rtk.css.map */

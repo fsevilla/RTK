@@ -5,25 +5,12 @@ body{
 }
 
 [class*='grid'] > div{
-    position: relative;
     background-color: #fcd4d4;
-    z-index: -1;
-}
-
-[class*='grid'] > div:before{
-    background-color: #f2abab;
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    /*left: 5px;*/
-    /*right: 5px;*/
-    z-index: -1;
+    border: solid 1px #f2abab;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .grid{
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
 }
