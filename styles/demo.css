@@ -2,6 +2,12 @@ html,
 body{
     margin: 0;
     padding: 0;
+    background-color: #fafafa;
+}
+
+#mainContainer{
+    max-width: 1024px;
+    margin: 0 auto;
 }
 
 [class*='grid'] > div{

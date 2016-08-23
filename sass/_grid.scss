@@ -1,193 +1,242 @@
+$maxColumns: 12;
+$total-width: 100;
 $gutter: 10px;
-$total-width: 100; //percentage
 
-@function getWidth($columns, $total){
-    @return ($total-width / $total * $columns)*1%;
+@function getWidth($cols, $base: 12){
+    @return ($cols*$total-width / $base)*1%;
 }
 
 .grid{
-    width: $total-width*1%;
+    width: 100%;
     height: auto;
 
-    & > [class*='c-']{
+    & > div[class^='c-']{
         float: left;
-        box-sizing: border-box;
         padding-left: $gutter;
         padding-right: $gutter;
-        word-wrap: break-word;
-        // margin-left: $gutter*-1;
-
-        //&:first-child{
-            // padding-left: 0;
-        //}
+        box-sizing: border-box;
     }
 
     &:after{
-        content:"";
+        content: "";
         display: table;
         clear: both;
     }
 
     &.no-gutter{
-        & > div[class*='c-']{
-            padding-left: 0;
+        & > div[class^='c-']{
+            padding: 0;
         }
-    }
-
-    &.edge{
-        & > div[class*='c-']:first-child{
-            padding-left: 0;
-        }
-
-        & > div[class*='c-']:last-child{
-            padding-right: 0;
-        }
-    }
-
-
-    /* 1 Column Based */
-    .c-1{
-        width: getWidth(12, 12);
-    }
-
-    /* 2 Column Based */
-    .c-1-2{
-        width: getWidth(1, 2);
     }
     
-    .c-2-2{
-        @extend .c-1;
-    }
-
-    /* 3 Column Based */
-    .c-1-3{
-        width: getWidth(1, 3);
-    }
-
-    .c-2-3{
-        width: getWidth(2, 3);
-    }
-
-    .c-3-3{
-        @extend .c-1;
-    }
-
-    /* 6 Column Based */
-    .c-1-6{
-        width: getWidth(1, 6);
-    }
-
-    .c-2-6{
-        width: getWidth(2, 6);
-    }
-
-    .c-3-6{
-        width: getWidth(3, 6);
-    }
-
-    .c-4-6{
-        width: getWidth(4, 6);
-    }
-
-    .c-5-6{
-        width: getWidth(4, 6);
-    }
-
-    .c-6-6{
-        @extend .c-1;
-    }
-
-    /* 12 Column Based */
-    .c-1-12{
-        width: getWidth(1, 12);
-    }
-
-    .c-2-12{
-        width: getWidth(2, 12);
-    }
-
-    .c-3-12{
-        width: getWidth(3, 12);
-    }
-
-    .c-4-12{
-        width: getWidth(4, 12);
-    }
-
-    .c-5-12{
-        width: getWidth(5, 12);
-    }
-
-    .c-6-12{
-        width: getWidth(6, 12);
-    }
-
-    .c-7-12{
-        width: getWidth(7, 12);
-    }
-
-    .c-8-12{
-        width: getWidth(8, 12);
-    }
-
-    .c-9-12{
-        width: getWidth(9, 12);
-    }
-
-    .c-10-12{
-        width: getWidth(10, 12);
-    }
-
-    .c-11-12{
-        width: getWidth(11, 12);
-    }
-
-    .c-12-12{
-        width: getWidth(12, 12);
-    }
-
-    /* Same height solution */
-    &.layout-grid{
+    &.same-height{
         overflow: hidden;
 
-        [class*=c-]{
+        & > div[class^='c-']{
             margin-bottom: -99999px;
             padding-bottom: 99999px;
         }
     }
-}
 
-/*
- * CONTAINERS
- */
+    .c-1{
+        width: getWidth(1, $maxColumns);
+    }
 
-.container{
-    max-width: $screen-large;
-    margin: 0 auto;
-}
+    .c-2{
+        width: getWidth(2, $maxColumns);
+    }
+    
+    .c-3{
+        width: getWidth(3, $maxColumns);
+    }
+    
+    .c-4{
+        width: getWidth(4, $maxColumns);
+    }
+    
+    .c-5{
+        width: getWidth(5, $maxColumns);
+    }
+    
+    .c-6{
+        width: getWidth(6, $maxColumns);
+    }
+    
+    .c-7{
+        width: getWidth(7, $maxColumns);
+    }
+    
+    .c-8{
+        width: getWidth(8, $maxColumns);
+    }
+    
+    .c-9{
+        width: getWidth(9, $maxColumns);
+    }
+    
+    .c-10{
+        width: getWidth(10, $maxColumns);
+    }
+    
+    .c-11{
+        width: getWidth(11, $maxColumns);
+    }
+    
+    .c-12{
+        width: getWidth(12, $maxColumns);
+    }
 
-.container-xl{
-    @extend .container;
-    max-width: $screen-xlarge;
-}
+    /*
+     * MOBILE
+     */
+    
+    @include mobile-only{
+        .c-m-1{
+            width: getWidth(1, $maxColumns);
+        }
 
-.container-md{
-    @extend .container;
-    max-width: $screen-medium;
-}
+        .c-m-2{
+            width: getWidth(2, $maxColumns);
+        }
+        
+        .c-m-3{
+            width: getWidth(3, $maxColumns);
+        }
+        
+        .c-m-4{
+            width: getWidth(4, $maxColumns);
+        }
+        
+        .c-m-5{
+            width: getWidth(5, $maxColumns);
+        }
+        
+        .c-m-6{
+            width: getWidth(6, $maxColumns);
+        }
+        
+        .c-m-7{
+            width: getWidth(7, $maxColumns);
+        }
+        
+        .c-m-8{
+            width: getWidth(8, $maxColumns);
+        }
+        
+        .c-m-9{
+            width: getWidth(9, $maxColumns);
+        }
+        
+        .c-m-10{
+            width: getWidth(10, $maxColumns);
+        }
+        
+        .c-m-11{
+            width: getWidth(11, $maxColumns);
+        }
+        
+        .c-m-12{
+            width: getWidth(12, $maxColumns);
+        }
+    }
 
-.container-ml{
-    @extend .container;
-    max-width: $screen-medium-large;
-}
+    @include tablet{
+        .c-t-1{
+            width: getWidth(1, $maxColumns);
+        }
 
-.container-sm{
-    @extend .container;
-    max-width: $screen-small;
-}
+        .c-t-2{
+            width: getWidth(2, $maxColumns);
+        }
+        
+        .c-t-3{
+            width: getWidth(3, $maxColumns);
+        }
+        
+        .c-t-4{
+            width: getWidth(4, $maxColumns);
+        }
+        
+        .c-t-5{
+            width: getWidth(5, $maxColumns);
+        }
+        
+        .c-t-6{
+            width: getWidth(6, $maxColumns);
+        }
+        
+        .c-t-7{
+            width: getWidth(7, $maxColumns);
+        }
+        
+        .c-t-8{
+            width: getWidth(8, $maxColumns);
+        }
+        
+        .c-t-9{
+            width: getWidth(9, $maxColumns);
+        }
+        
+        .c-t-10{
+            width: getWidth(10, $maxColumns);
+        }
+        
+        .c-t-11{
+            width: getWidth(11, $maxColumns);
+        }
+        
+        .c-t-12{
+            width: getWidth(12, $maxColumns);
+        }
+    }
 
-.clearfix:after{
-    content: "";
-    display: table;
-    clear: both;
+    @include desktop{
+        .c-d-1{
+            width: getWidth(1, $maxColumns);
+        }
+
+        .c-d-2{
+            width: getWidth(2, $maxColumns);
+        }
+        
+        .c-d-3{
+            width: getWidth(3, $maxColumns);
+        }
+        
+        .c-d-4{
+            width: getWidth(4, $maxColumns);
+        }
+        
+        .c-d-5{
+            width: getWidth(5, $maxColumns);
+        }
+        
+        .c-d-6{
+            width: getWidth(6, $maxColumns);
+        }
+        
+        .c-d-7{
+            width: getWidth(7, $maxColumns);
+        }
+        
+        .c-d-8{
+            width: getWidth(8, $maxColumns);
+        }
+        
+        .c-d-9{
+            width: getWidth(9, $maxColumns);
+        }
+        
+        .c-d-10{
+            width: getWidth(10, $maxColumns);
+        }
+        
+        .c-d-11{
+            width: getWidth(11, $maxColumns);
+        }
+        
+        .c-d-12{
+            width: getWidth(12, $maxColumns);
+        }
+    }
 }

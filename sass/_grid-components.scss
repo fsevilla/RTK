@@ -57,3 +57,26 @@ div[class*='grid-']{
         // }
     }
 }
+
+.grid-r-3-2-1{
+    > div{
+        width: getWidth(1, 1);
+    }
+
+    @include tablet{
+        > div{
+                width: getWidth(1, 2);
+
+                &:first-child{
+                    width: getWidth(1, 1);
+                }
+        }
+    }
+
+    @include desktop{
+        > div,
+        > div:first-child{
+            width: getWidth(1, 3);
+        }
+    }
+}
